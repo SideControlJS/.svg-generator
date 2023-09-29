@@ -1,8 +1,8 @@
-const inquirer = require('inquirer');
-const fs = require('fs');
-const { Triangle, Circle, Square } = require('./lib/shapes');
+let inquirer;
 
-function promptUser() {
+import('inquirer').then(module => {
+    inquirer = module.default;
+
     return inquirer.prompt([
         {
             type: 'input',
@@ -27,32 +27,39 @@ function promptUser() {
             message: 'Please enter a color for the shape of your logo (keyword or hex):',
         }
     ]);
-}
 
-function generateSVG({ text, textColor, shape, shapeColor }) {
-    let selectedShape;
-    switch (shape) {
+}).then(answers => {
+    let svgContent = ''; //hold svg string
+
+    //generate svg based on the shape that's selected
+    switch(answers.shape) {
         case 'circle':
-            selectedShape = new Circle();
+            svgContent = `circle cx="100" r="50" fill="${answers.shapeColor}" />`;
             break;
         case 'triangle':
-            selectedShape = new Triangle();
+            svgContent = `<polygon points="150, 18 244, 182 56, 182" fill="${answers.shapeColor}" />`;
             break;
         case 'square':
-            selectedShape = new Square();
+            svgContent = `<rect x="100" y="50" width="100" height="100" fill="${answers.shapeColor}" />`;
             break;
     }
 
-    selectedShape.setColor(shapeColor);
-
-    const svgContent = `
-        <svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
-            ${selectedShape.render()}
-            <text x="150" y="110" font-family="Arial" font-size="24px" fill="${textColor}" text-anchor="middle">
-                ${text}
-            </text>
-        </svg>
+    //add text to the svg
+    svgContent += `<text x="150" y="100" font-size="24" fill="${answers.textColor}" text-anchor="middle" dominant-baseline="central">${answers.text}</text>`;
+    
+    svgContent = `
+    <svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+        ${svgContent}
+    </svg>
     `;
+    
+    //save svgContent to a file
+    const fs = require('fs');
+    fs.writeFileSync('logo.svg', svgContent, 'utf8');
 
-    return svgContent.trim();
-}
+    console.log('Generated logo.svg')
+})
+
+
+    
+
