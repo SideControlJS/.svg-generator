@@ -1,6 +1,22 @@
 {
+  "name": "svg-generator",
+  "version": "1.0.0",
+  "description": "An app to generate SVG logos based on user input",
+  "main": "index.js",
+  "directories": {
+    "example": "examples",
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": ["svg", "logo", "generator"],
+  "author": "Jesse",
+  "license": "ISC",
   "dependencies": {
-    "inquirer": "^9.2.11",
+    "inquirer": "^9.2.11"
+  },
+  "devDependencies": {
     "jest": "^29.7.0"
   }
 }

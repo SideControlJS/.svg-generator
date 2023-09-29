@@ -1,6 +1,6 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const generateLogo = require('./utils/generateLogo');
+const generateLogo = require('./generateLogo.js');
 
 const questions =  [
     {
@@ -10,7 +10,7 @@ const questions =  [
         validate: input => input.length <= 3 || 'Text for your logo can only be a max of 3 characters!',
     },
     {
-        type: 'iput',
+        type: 'input',
         name: 'textColor',
         message: 'Please enter a text color (keyword or hex):',
     },
