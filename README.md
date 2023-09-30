@@ -2,7 +2,7 @@
 
 An interactive SVG logo generation tool that allows users to customize and generate logos with a choice of shapes (circle, square, and triangle) and colors.
 
-[Video Walkthrough Demo](https://drive.google.com/file/d/1o_juGioD9CEuMQe4e50l-OzYc_LNEzmY/view)
+[Video Walkthrough Demo](https://watch.screencastify.com/v/mJbuHPs1OZxx9IRlMdFr)
 
 ## Table of Contents
 
