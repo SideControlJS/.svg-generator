@@ -19,5 +19,5 @@ test('Circle class renders correct SVG', () => {
 test('Square class renders correct SVG', () => {
   const shape = new Square();
   shape.setColor("yellow");
-  expect(shape.render()).toEqual('<rect width="160" height="160" x="70" y="20" fill="yellow" /> />');
+  expect(shape.render()).toEqual('<rect width="160" height="160" x="70" y="20" fill="yellow" />');
 });
