@@ -13,6 +13,7 @@ An interactive SVG logo generation tool that allows users to customize and gener
 - [Dependencies](#dependencies)
 - [Common-Issues-and-Solutions](#common-issues-and-solutions)
 - [Contribute](#contribute)
+- [Local-Repo-Source](#local-repo-source)
 - [License](#license)
 
 ## Features
