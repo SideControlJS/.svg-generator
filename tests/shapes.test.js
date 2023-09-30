@@ -1,5 +1,5 @@
 
-const { Triangle, Circle, Square } = require('./shapes');
+const { Triangle, Circle, Square } = require('../lib');
 
 //test for Triangle
 test('Triangle class renders correct SVG', () => {

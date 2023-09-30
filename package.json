@@ -10,11 +10,15 @@
   "scripts": {
     "test": "jest"
   },
-  "keywords": ["svg", "logo", "generator"],
+  "keywords": [
+    "svg",
+    "logo",
+    "generator"
+  ],
   "author": "Jesse",
   "license": "ISC",
   "dependencies": {
-    "inquirer": "^9.2.11"
+    "inquirer": "^8.2.6"
   },
   "devDependencies": {
     "jest": "^29.7.0"

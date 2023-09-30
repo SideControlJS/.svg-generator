@@ -1,20 +1,28 @@
-function generateLogo(data) {
-    let svgContent = '';
+const Triangle = require('../lib/triangle');
+const Circle = require('../lib/circle');
+const Square = require('../lib/square');
 
+function generateLogo(data) {
+    let shapeInstance;
     switch(data.shape) {
         case 'circle':
-            svgContent = `<circle cx="150" cy="100" r="50" fill="${data.shapeColor}" />`;
+            shapeInstance = new Circle();
             break;
         case 'triangle':
-            svgContent = `<polygon points="150,18 244,182 56,182" fill="${data.shapeColor}" />`;
+            shapeInstance = new Triangle();
             break;
         case 'square':
-            svgContent = `<rect x="100" y="50" width="100" height="100" fill="${data.shapeColor}" />`;
+            shapeInstance = new Square();
             break;
     }
 
+    shapeInstance.setColor(data.shapeColor);
+
+    let svgContent = shapeInstance.render();
+
     svgContent += `<text x="150" y="100" font-size="24" fill="${data.textColor}" text-anchor="middle" dominant-baseline="central">${data.text}</text>`;
-    return svgContent;
+
+    return `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">${svgContent}</svg>`;
 }
 
 module.exports = generateLogo;
