@@ -4,26 +4,6 @@ An interactive SVG logo generation tool that allows users to customize and gener
 
 [Video Walkthrough Demo](https://drive.google.com/file/d/1o_juGioD9CEuMQe4e50l-OzYc_LNEzmY/view)
 
-## Common Issues and Solutions
-
-### inquirer and Module System Compatibility
-If you encounter an error like the following when running the application:
-
-"Error [ERR_REQUIRE_ESM]: require() of ES Module .../node_modules/inquirer/lib/inquirer.js ... not supported.
-This is related to a module system compatibility issue between CommonJS and ES Modules (ESM). Newer versions of inquirer are written as ES Modules, and older project setups may use require(), which is designed for CommonJS, causing the error."
-
-### Solutions:
-1. Use Dynamic Imports: You can use dynamic imports (import()) instead of require() to load ES Modules. In our main application logic:
-
-
-import('inquirer').then(inquirer => {
-    // Your code here
-});
-
-2. Use an Older Version of inquirer: If refactoring isn't an option, consider using an older version of inquirer that still uses CommonJS:
-
-npm install inquirer@<version>
-
 ## Table of Contents
 
 - [Features](#features)
@@ -89,6 +69,26 @@ npm test
 
 - [inquirer](https://www.npmjs.com/package/inquirer): For interactive CLI prompts.
 - [jest](https://jestjs.io/): Used for testing.
+
+## Common Issues and Solutions
+
+### inquirer and Module System Compatibility
+If you encounter an error like the following when running the application:
+
+"Error [ERR_REQUIRE_ESM]: require() of ES Module .../node_modules/inquirer/lib/inquirer.js ... not supported.
+This is related to a module system compatibility issue between CommonJS and ES Modules (ESM). Newer versions of inquirer are written as ES Modules, and older project setups may use require(), which is designed for CommonJS, causing the error."
+
+### Solutions:
+1. Use Dynamic Imports: You can use dynamic imports (import()) instead of require() to load ES Modules. In our main application logic:
+
+
+import('inquirer').then(inquirer => {
+    // Your code here
+});
+
+2. Use an Older Version of inquirer: If refactoring isn't an option, consider using an older version of inquirer that still uses CommonJS:
+
+npm install inquirer@<version>
 
 ## Contribute
 
