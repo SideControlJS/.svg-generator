@@ -9,9 +9,9 @@ An interactive SVG logo generation tool that allows users to customize and gener
 ### inquirer and Module System Compatibility
 If you encounter an error like the following when running the application:
 
-```Error [ERR_REQUIRE_ESM]: require() of ES Module .../node_modules/inquirer/lib/inquirer.js ... not supported.
-This is related to a module system compatibility issue between CommonJS and ES Modules (ESM). Newer versions of inquirer are written as ES Modules, and older project setups may use require(), which is designed for CommonJS, causing the error.
-```
+"Error [ERR_REQUIRE_ESM]: require() of ES Module .../node_modules/inquirer/lib/inquirer.js ... not supported.
+This is related to a module system compatibility issue between CommonJS and ES Modules (ESM). Newer versions of inquirer are written as ES Modules, and older project setups may use require(), which is designed for CommonJS, causing the error."
+
 ### Solutions:
 1. Use Dynamic Imports: You can use dynamic imports (import()) instead of require() to load ES Modules. In our main application logic:
 
